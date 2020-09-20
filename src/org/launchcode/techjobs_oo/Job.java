@@ -27,7 +27,31 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    // equals, and hashCode methods:
+    // Custom toString, equals, and hashCode methods:
+
+    @Override
+    public String toString() {
+
+        if (name.equals("") && employer.getValue().equals("") && location.getValue().equals("") &&
+                positionType.getValue().equals("") && coreCompetency.getValue().equals("")) {
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        if (name.equals("")) { setName("Data not available"); }
+        if (employer.getValue().equals("")) { employer.setValue("Data not available"); }
+        if (location.getValue().equals("")) { location.setValue("Data not available"); }
+        if (positionType.getValue().equals("")) { positionType.setValue("Data not available"); }
+        if (coreCompetency.getValue().equals("")) { coreCompetency.setValue("Data not available"); }
+
+        return  "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency +
+                "\n" ;
+    }
 
     @Override
     public boolean equals(Object o) {
